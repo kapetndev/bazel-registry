@@ -1,0 +1,11 @@
+{
+  "homepage": "https://github.com/grpc-ecosystem/grpc-gateway",
+  "maintainers": [],
+  "repository": [
+    "github:grpc-ecosystem/grpc-gateway"
+  ],
+  "versions": [
+    "2.20.0"
+  ],
+  "yanked_versions": {}
+}
