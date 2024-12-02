@@ -1,0 +1,35 @@
+module(
+    name = "rules_plantuml",
+    version = "0.1.0",
+)
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "buildifier_prebuilt", version = "6.4.0")
+
+# ============
+# === Java ===
+# ============
+
+bazel_dep(name = "grpc-java", version = "1.66.0")
+bazel_dep(name = "rules_java", version = "7.10.0")
+bazel_dep(name = "rules_jvm_external", version = "6.4")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+# Install PlantUML. This must be given a name different than "maven" becuase the
+# author of the "grpc-java" module has used the default "maven" already. This
+# does not actually cause a conflict but it does produce warnings when
+# used. Authors of shared packages should not use the default "maven" name.
+# https://github.com/bazel-contrib/rules_jvm_external/issues/916#issuecomment-1877139465
+maven.install(
+    name = "rules_plantuml_deps",
+    artifacts = [
+        "net.sourceforge.plantuml:plantuml:1.2021.9",
+    ],
+    repositories = [
+        "https://repo.maven.apache.org/maven2",
+    ],
+)
+
+# Use the PlantUML dependencies.
+use_repo(maven, "rules_plantuml_deps")
