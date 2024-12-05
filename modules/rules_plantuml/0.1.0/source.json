@@ -1,0 +1,6 @@
+{
+  "url": "https://github.com/tomasbasham/rules-plantuml/archive/refs/tags/v0.1.0.tar.gz",
+  "integrity": "sha256-EBkmQKIZNygqsL0Hm63T4Qmw9P8E8DR1eFp1VjpfF44=",
+  "strip_prefix": "rules-plantuml-0.1.0",
+  "patch_strip": 1
+}
